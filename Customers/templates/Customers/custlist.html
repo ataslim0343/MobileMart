@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+
+	<div class="jumbotron" style="position: relative;top: 100px;min-height:73vh;background-color: rgba(0,0,0,0.4);border:2px solid white;color: white;" data-aos="flip-up">
+		<table class="table">
+			<th>Username</th>
+			<th>First Name</th>
+			<th>Email</th>
+			<th>Mobile</th>
+			<th>More</th>
+
+			{% for i in data %}
+
+				<tr>
+					<td>{{i.0}}</td>
+					<td>{{i.1}}</td>
+					<td>{{i.2}}</td>
+					<td>{{i.3}}</td>
+					<td><a class="btn btn-info" href="{% url 'viewpro' un=i.0 %}">More</a></td
+				</tr>
+
+			{% endfor %}
+		</table>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}>
+	<div class="container-fluid">
+        <div class="jumbotron" data-aos="zoom-out-up" data-aos-duration="3000" style="background-color:#ffc0cb;">
+
+            <form method="POST" action="{% url 'addmob' %}" enctype="multipart/form-data">
+                {% csrf_token %} <!-- cross site request frequency -->
+                <div class="form-group">
+                    <label>Mobile</label>
+                    <select name="mobile" class="form-control">
+                        {% for i in data %}
+                        <option>{{i.0}}</option>
+                        {% endfor %}
+                    </select>    
+                </div>
+
+                <div class="form-group">
+                    <label>Model</label>
+                    <input type="text" name="model" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" name="price" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" name="quantity" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Battery</label>
+                    <select name="battery" class="form-control">
+                        <option>Removable</option>
+                        <option>Non-Removable</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Charger</label>
+                    <select name="charger" class="form-control">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Headset</label>
+                    <select name="headset" class="form-control">
+                        <option >Yes</option>
+                        <option >No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Memory</label>
+                    <select name="memory" class="form-control">
+                        <option>Expandable</option>
+                        <option>Non-expandable
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Data Cable</label>
+                    <select name="datacable" class="form-control">
+                        <option>Yes</option>
+                        <option>No
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Picture</label>
+                    <input type="file" name="picture" value="" class="form-control" multiple>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Add">
+
+             </form>
+
+        </div>
+    </div>
+            
+{% endblock %}
+
+

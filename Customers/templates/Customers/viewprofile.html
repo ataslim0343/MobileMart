@@ -1,0 +1,32 @@
+{% extends 'base.html '%}
+{% block content %}
+{% load bootstrap3 %}
+<section>
+	<div class="container-fluid>">
+		<div class="jumbotron" style="position: relative; min-height: 73vh; box-shadow:0px 10px 20px black;" border:2px solid white; 
+		 background-color:white; " data-aos="zoom-in" data-aos-duration="2000">
+
+			<a href={{data.7}}><div class="col-lg-6" style="background-image: url({{data.7}}); height: 400px; width: 400px; background-size: contain; margin-left: 20px; margin-right: 80px;">
+				
+			</div></a>
+			<h1>Username: {{data.0}}</h1>
+			<p>First Name: {{data.1}}</p>
+			<p>Last Name: {{data.2}}</p>
+			<p>Eamil: {{data.3}}</p>
+			<p>Mobile: {{data.4}}</p>
+			<p>Aadhar: {{data.5}}</p>
+			<p>Address: {{data.6}}</p>
+		</div>
+	</div>
+
+
+	
+
+
+
+
+
+</section>
+
+
+{% endblock %}

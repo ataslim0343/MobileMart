@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+	<div class="container-fluid">
+     
+		<div class="jumbotron" style="position: relative;top: 100px;min-height:73vh;background-color: rgba(0,0,0,0.4);border:2px solid white;color: white;" data-aos="flip-up">
+			<table class="table">
+				<th>Mobile</th>
+				<th>Model</th>
+				<th>Price</th>
+				<th>More</th>
+				
+
+				{% for i in data %}
+
+					<tr>
+						<td>{{i.0}}</td>
+						<td>{{i.1}}</td>
+						<td>{{i.2}}</td>
+						<td><a class="btn btn-info" href="{% url 'mobdet' mod=i.3 %}">Details</a></td>
+					</tr>
+
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+
+
+
+
+
+
+{% endblock %}

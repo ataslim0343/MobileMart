@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if user.is_superuser %}
+		<div class="container-fluid">
+			<div class="jumbotron" data-aos="zoom-in-up" data-aos-duration="2000" style=" box-shadow: 0px 10px 10px black;" >
+				<h2>Hello {{user}}......!!!</h2>
+					<br>
+				<h1>Welcome to Mobile Mart....!!</h1>
+			</div>
+		</div>
+
+		
+	
+
+	{% elif user.is_authenticated %}
+		<div class="container-fluid">
+			<div class="jumbotron" data-aos="zoom-in-up" data-aos-duration="2000" style=" box-shadow: 0px 10px 10px black;" >
+				<h2>Hello {{user}}......!!!</h2>
+					<br>
+				<h1>Welcome to Mobile Mart....!!</h1>
+			</div>
+		</div>
+
+		<div class="col-lg-3 thumbnail">
+			<img src="{{data.9}}" alt="">
+
+		</div>
+	{% endif %}
+{% endblock %}

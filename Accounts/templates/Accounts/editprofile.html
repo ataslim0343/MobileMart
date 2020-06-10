@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}>
+	<div class="container">
+        <div class="jumbotron" data-aos="zoom-out-up" data-aos-duration="3000" style="background-color:#ffc0cb;">
+            <form method="POST" action="{% url 'editpro' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                	<label>User Name</label>
+                    <input type="text" name="uname" class="form-control" value="{{user}}">
+                </div>
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="fname" class="form-control" 
+                    value="{{user.first_name}}">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="lname" class="form-control" 
+                    value="{{user.last_name}}">
+                </div>
+                <div class="form-group">
+                    <label>Mobile</label>
+                    <input type="text" name="mob" class="form-control" pattern="\d{10}" title="must be 10 digit" value="{{user.Mobile}}">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" 
+                    value="{{user.email}}">
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea name="address" class="form-control" 
+                    value="{{user.Address}}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Aadhar</label>
+                    <input type="number" name="aadhar" class="form-control" 
+                    value="{{user.Aadhar}}"><br>
+                </div>
+                <div class="form-group">
+                    <label>Profile Photo</label>
+                    <input type="file" name="dp" class="form-control" 
+                    value="{{user.Pic}}"><br>
+                </div>
+				<div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Update">
+                </div>
+            </form>
+{% endblock %}
+
+

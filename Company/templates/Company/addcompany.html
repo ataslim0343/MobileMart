@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+	<div class="container-fluid">
+		<div class="jumbotron" style="position: relative; top:120px;" data-aos="zoom-in" data-aos-duration="2000">
+			<form action="{% url 'addcom' %}" method="POST" >
+				{% csrf_token %} <!-- cross site request frequency -->
+				<div class="form-group">
+					<label>Company Name</label>
+					<input type="text" name="companyname" class="form-control"><br>
+					<input type="submit" value="Add" class="btn btn-success">
+
+				</div>
+				
+			  
+			</form>
+
+		</div>
+	</div>
+
+{% endblock %}

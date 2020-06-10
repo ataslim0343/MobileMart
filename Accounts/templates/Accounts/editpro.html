@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap3 %}
+
+
+	<section id="sec1" class="container-fluid" style="background-image: url('/static/d.jpg');background-size:cover;height: 100vh;box-shadow:0px 10px 20px black;">
+		
+		<div class="jumbotron" style="position: relative;top: 100px;min-height:73vh;background-color: rgba(0,0,0,0.4);border:2px solid white;color: white;" data-aos="zoom-in-up">
+				<form action="{% url 'editpro' %}" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group">
+						<label>Username:</label>
+						<input type="text" name="us" value="{{user}}" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>First Name:</label>
+						<input type="text" name="first" class="form-control" value="{{user.first_name}}">
+					</div>
+					<div class="form-group">
+						<label>Last Name:</label>
+						<input type="text" name="last" class="form-control" value="{{user.last_name}}">
+					</div>
+					<div class="form-group">
+						<label>Email:</label>
+						<input type="email" name="email" class="form-control" value="{{user.email}}">
+					</div>
+					<div class="form-group">
+						<label>Mobile:</label>
+						<input type="number" name="mobile" class="form-control" value="{{user.mobile}}">
+					</div>
+					<div class="form-group">
+						<label>Aadhar No.:</label>
+						<input type="number" name="aadhar" class="form-control" value="{{user.aadhar}}">
+					</div>
+					<div class="form-group">
+						<label>Address:</label>
+						<textarea name="address" class="form-control" value="{{user.address}}">
+							
+						</textarea>
+					</div>
+					<div class="form-group">
+						<label>Profile Pic:</label>
+						<input type="file" name="file" class="form-control" value="{{user.pic}}">
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-info">
+					</div>
+				</form>
+				
+			
+		</div>
+
+	</section>
+{% endblock %}

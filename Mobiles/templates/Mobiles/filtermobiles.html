@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="conatiner">
+		<div class=jumbotron" style="position: relative; top: 100px;min-height:73vh;background-color: #ffc0cb; border:2px solid white;color: white;">
+			<form method="POST" action="{% url 'filtermobs' %}">
+				{% csrf_token %}
+				<div class="form-group">
+					<label>Mobile</label>
+					<input type="text" name="mob" placeholder="Filter by mobile name....." 
+					class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Model</label>
+					<input type="text" name="mod" placeholder="Filter by model name....." 
+					class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Price From</label>
+					<input type="number" name="frm" placeholder="Filter by price (minimum price)...." class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Price To</label>
+					<input type="number" name="to" placeholder="Filter by price (maximum price)...." class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-info" value="Filter">
+				</div>
+			</form>
+		</div>
+
+		<table class="table">
+			<tr>
+				<th>Mobile</th>
+				<th>Model</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Charger</th>
+				<th>Battery</th>
+				<th>Headset</th>
+				<th>Memory</th>
+				<th>Datacable</th>
+				<th>More</th>
+			</tr>
+
+			{% for i in data %}
+			<tr>
+				<td>{{i.1}}</td>
+				<td>{{i.2}}</td>
+				<td>{{i.3}}</td>
+				<td>{{i.4}}</td>
+				<td>{{i.5}}</td>
+				<td>{{i.6}}</td>
+				<td>{{i.7}}</td>
+				<td>{{i.8}}</td>
+				<td>{{i.9}}</td>
+				<td><a href="" class="btn btn-success">More</a></td>
+			</tr>
+			
+			{% endfor %}
+		</table>
+	</div>
+{% endblock %}

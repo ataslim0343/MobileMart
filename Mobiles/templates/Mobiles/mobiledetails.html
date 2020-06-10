@@ -1,0 +1,49 @@
+{% extends 'base.html '%}
+
+{% block content %}
+
+<section>
+	<div class="container-fluid">
+		<div class="jumbotron" style="position: relative; min-height: 90vh; box-shadow:0px 10px 20px black;border:2px solid white; 
+		 background-color:#ffc0cb;" data-aos="zoom-in" data-aos-duration="2000">
+
+			<a href="{{data.9}}"><div class="col-lg-6" style="background-image: url({{data.9}}); height: 400px; width: 400px; background-size: contain; margin-left: 20px; margin-right: 80px;">
+				
+			</div></a>
+			<div class="col-lg-6">
+			<h1>Mobile: {{data.0}}</h1>
+			<p>Model: {{data.1}}</p>
+			<p>Price: {{data.2}}</p>
+			<p>Quantity: {{data.3}}</p>
+			<p>Charger: {{data.4}}</p>
+			<p>Battery: {{data.5}}</p>
+			<p>Headset: {{data.6}}</p>
+			<p>Memory: {{data.7}}</p>
+			<p>Data Cable: {{data.8}}</p>
+			<p>
+				<h2><a href="{% url 'updatemob' mod=data.1 %}" class="btn btn-success">Update</a> 
+				<a href="{% url 'deletemob' mod=data.1 %}" class="btn btn-danger" data-toggle="modal" data-target="#mydiv1">Delete</a></h2>
+			</p>
+			</div>
+		</div>
+	</div>
+
+<div id="mydiv1" class="modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1>Confirmation.....<span class="close" data-dismiss="modal">&times;</span></h1>
+			</div>
+			<div class="modal-body">
+				<h1>Are You Sure to Delete ..{{data.1}}</h1>
+			</div>
+			<div class="modal-footer">
+					<a href="{% url 'delmob' mod=data.1 %}" class="btn btn-danger">Delete</a>	
+					<a href="{% url 'moblist' %}" class="btn btn-info">Cancel</a>	
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+{% endblock %}
